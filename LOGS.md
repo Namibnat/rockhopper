@@ -7,6 +7,8 @@
 * Add a scanner routine to read the file, and produce a stream of tokens
 * Add minimal read and close expressions
 * Read the testfile
+* Create a function to clear comments, and lay out the basic logic for it
+
 
 
 ## 21 October 2021
