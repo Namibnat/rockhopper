@@ -1,5 +1,11 @@
 # LOGS
 
+## 23 October 2021
+
+* Refactor to separate the file read.
+* Working on clear comments
+* Getting the hang of passing strings through pointers
+
 
 ## 22 October 2021
 
