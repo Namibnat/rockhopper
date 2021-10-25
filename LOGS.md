@@ -3,7 +3,7 @@
 ## 25 October 2021
 
 * Iterate over the read buffer, as a move towards clearing comments
-* 
+* Skip // comments in the input buffer
 
 
 ## 24 October 2021
