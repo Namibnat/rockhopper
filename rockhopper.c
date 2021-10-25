@@ -7,8 +7,21 @@
 void skip_to_new_line(char** buffer, size_t* i)
 {
   size_t increment = 1;
+  *i = *i + (2 * increment);
   while (*(*buffer + *i) != '\n' && *(*buffer + *i) != '\0'){
     *i = *i + increment;
+  }
+}
+
+
+void skip_to_end_slash_star(char** buffer, size_t* i)
+{
+  size_t increment = 1;
+  *i = *i + (2 * increment);
+  if  (*(*buffer + *i) != '\0' && *(*buffer + *i + increment) != '\0'){
+      while (*(*buffer + *i) != '*' && *(*buffer + *i + increment) != '/'){
+        *i = *i + increment;
+      }
   }
 }
 
@@ -16,9 +29,21 @@ void skip_to_new_line(char** buffer, size_t* i)
 bool is_slash_slash(char** buffer, size_t* i)
 {
   size_t increment = 1;
-  if (*(*buffer + *i + 1) == '\0') return false;
-  if (*(*buffer + *i) == '/' && (*(*buffer + *i + increment) == '/')) return true;
-  printf("'is_slash_slash' return false\n");
+  if (*(*buffer + *i) == '\0') return false;
+  if (*(*buffer + *i) == '/' && (*(*buffer + *i + increment) == '/')){
+    return true;
+  }
+  return false;
+}
+
+
+bool is_slash_star(char** buffer, size_t* i)
+{
+  size_t increment = 1;
+  if (*(*buffer + *i) == '\0') return false;
+  if (*(*buffer + *i) == '/' && (*(*buffer + *i + increment) == '*')) {
+    return true;
+  }
   return false;
 }
 
@@ -32,9 +57,8 @@ void clear_comments(char** buffer, size_t* fsize)
 
  while (strlen(*buffer)){
   printf("i is %zu\n", i);
-  if (is_slash_slash(buffer, &i)){
-    skip_to_new_line(buffer, &i);
-  }
+  if (is_slash_slash(buffer, &i)) skip_to_new_line(buffer, &i);
+  if (is_slash_star(buffer, &i)) skip_to_end_slash_star(buffer, &i);
   if (i >= *fsize) break;
   i++;
  }
