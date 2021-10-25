@@ -1,5 +1,16 @@
 # LOGS
 
+## 25 October 2021
+
+* Iterate over the read buffer, as a move towards clearing comments
+* 
+
+
+## 24 October 2021
+
+* Just reviewed pointers, and concepts like double pointers
+
+
 ## 23 October 2021
 
 * Refactor to separate the file read.
@@ -14,7 +25,6 @@
 * Add minimal read and close expressions
 * Read the testfile
 * Create a function to clear comments, and lay out the basic logic for it
-
 
 
 ## 21 October 2021

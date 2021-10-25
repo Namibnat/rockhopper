@@ -3,44 +3,47 @@
 #include <string.h>
 
 
-int clear_comments(char **buffer, long fsize)
+
+void clear_comments(char** buffer, size_t* fsize)
 {
   /* 
     Read the input buffer, and clear out comments
   */
- for (long i = 0; i < 4; i++){
-  printf("%c\n", *buffer[i]);
+ for (size_t i = 0; i < *fsize; i++){
+    printf("%c\n", *(*buffer + i));
  }
-  return fsize;
+
 }
 
-long read_the_file(char **buffer)
+void read_the_file(char** buffer, size_t* fsize)
 {
   FILE *fp;
-  long fsize = 0;
 
   fp = fopen("./test/testfile.c", "r");
   if (fp){
     fseek(fp, 0, SEEK_END);
-    fsize = ftell(fp);
+    *fsize = ftell(fp);
     fseek(fp, 0, SEEK_SET);
-    *buffer = realloc(*buffer, fsize + 1);
-    if (fsize == 0){
-      return 1;
-    }
-    fread(*buffer, 1, fsize, fp);
+    *buffer = realloc(*buffer, *fsize + 1);
+    *buffer[*fsize] = '\0';
+    *fsize += 1;
+
+    fread(*buffer, 1, *fsize, fp);
+    printf("%s\n", *buffer);
     fclose(fp);
   }
-  return fsize;
 }
 
 int scanner()
 {
   char *buffer = NULL;
-  long fsize = read_the_file(&buffer);
-  fsize = clear_comments(&buffer, fsize);
+  size_t fsize = 0;
+  read_the_file(&buffer, &fsize);
+  if (fsize == 0) return 1;
+  clear_comments(&buffer, &fsize);
+  if (fsize == 0) return 2;
 
-  printf("%s", buffer);
+  // printf("%s", buffer);
   free(buffer);
 
   return 0;
