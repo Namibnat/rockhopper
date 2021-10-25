@@ -7,33 +7,39 @@
 void skip_to_new_line(char** buffer, size_t* i)
 {
   size_t increment = 1;
-  while (*(*buffer + *i) != '\n' && *(*buffer + *i) != '\0')
-  *i = *i + increment;
+  while (*(*buffer + *i) != '\n' && *(*buffer + *i) != '\0'){
+    *i = *i + increment;
+  }
 }
 
-bool is_slash_slash(char** buffer, size_t i)
+
+bool is_slash_slash(char** buffer, size_t* i)
 {
-  if (*(*buffer + i + 1) == '\0') return false;
-  if (*(*buffer + i) == '/' && (*(*buffer + i + 1) == '/')) return true;
+  size_t increment = 1;
+  if (*(*buffer + *i + 1) == '\0') return false;
+  if (*(*buffer + *i) == '/' && (*(*buffer + *i + increment) == '/')) return true;
+  printf("'is_slash_slash' return false\n");
   return false;
 }
+
 
 void clear_comments(char** buffer, size_t* fsize)
 {
   /* 
     Read the input buffer, and clear out comments
   */
- bool in_slash_slash = false;
- bool in_slash_star = false;
- bool in_dbl_quote_str = false;
- bool in_sgl_quote_str = false;
+ size_t i = 0;
 
- for (size_t i = 0; i < *fsize; i++){
-  if (is_slash_slash(buffer, i))
+ while (strlen(*buffer)){
+  printf("i is %zu\n", i);
+  if (is_slash_slash(buffer, &i)){
     skip_to_new_line(buffer, &i);
-  if (i == *fsize) break;
+  }
+  if (i >= *fsize) break;
+  i++;
  }
 }
+
 
 void read_the_file(char** buffer, size_t* fsize)
 {
@@ -45,13 +51,13 @@ void read_the_file(char** buffer, size_t* fsize)
     *fsize = ftell(fp);
     fseek(fp, 0, SEEK_SET);
     *buffer = realloc(*buffer, *fsize + 1);
-    *buffer[*fsize] = '\0';
-    *fsize += 1;
-
     fread(*buffer, 1, *fsize, fp);
+    *fsize += 1;
+    *buffer[*fsize] = '\0';
     fclose(fp);
   }
 }
+
 
 int scanner()
 {
@@ -65,6 +71,7 @@ int scanner()
 
   return 0;
 }
+
 
 int main()
 {
