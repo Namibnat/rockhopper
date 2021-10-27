@@ -1,5 +1,15 @@
 # LOGS
 
+## 27 October 2021
+
+* Again, mostly working on work, though I am doing some reading up on compilers tonight.
+
+
+## 26 October 2021
+
+* I used up all my free time on work, so no progress.
+
+
 ## 25 October 2021
 
 * Iterate over the read buffer, as a move towards clearing comments
@@ -21,10 +31,10 @@
 
 ## 22 October 2021
 
-* Add a testfile to work with, and just start with a comment line
+* Add a 'testfile' to work with, and just start with a comment line
 * Add a scanner routine to read the file, and produce a stream of tokens
 * Add minimal read and close expressions
-* Read the testfile
+* Read the 'testfile'
 * Create a function to clear comments, and lay out the basic logic for it
 
 

@@ -1,3 +1,5 @@
+/* The rockhopper thingi, hoping to be a compiler one day */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
