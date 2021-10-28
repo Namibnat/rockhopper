@@ -1,5 +1,12 @@
 # LOGS
 
+## 28 October 2021
+
+* I've had a tough day at work, and so my brain just isn't up to much being clever. So I'm just
+  trying to make progress on simple stuff.
+* First thing today was just updating my readme.  A good activity for rough days.
+* 
+
 ## 27 October 2021
 
 * Again, mostly working on work, though I am doing some reading up on compilers tonight.
