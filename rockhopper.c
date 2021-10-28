@@ -1,9 +1,6 @@
 /* The rockhopper thingi, hoping to be a compiler one day */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
+#include "rockhopper.h"
 
 
 void skip_to_new_line(char** buffer, size_t* i)
@@ -99,7 +96,7 @@ int scanner()
 }
 
 
-int main()
+int main(int argc, char *argv[])
 {
   int success = scanner();
   if (success > 0){

@@ -5,6 +5,7 @@
 * I've had a tough day at work, and so my brain just isn't up to much being clever. So I'm just
   trying to make progress on simple stuff.
 * First thing today was just updating my readme.  A good activity for rough days.
+* Move imports to a header file.
 * 
 
 ## 27 October 2021
