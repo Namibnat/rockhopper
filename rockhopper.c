@@ -76,7 +76,11 @@ void read_the_file(char** buffer, size_t* fsize)
     *buffer = realloc(*buffer, *fsize + 1);
     fread(*buffer, 1, *fsize, fp);
     *fsize += 1;
-    *buffer[*fsize] = '\0';
+    *buffer[*fsize-1] = '\0';
+    for (unsigned long ii = 0; ii < *fsize; ii++){
+      printf("[%zu: (%d:%c)];  ", ii, buffer[0][ii], buffer[0][ii]);
+    }
+    printf("\n");
     fclose(fp);
   }
 }

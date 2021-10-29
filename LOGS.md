@@ -1,5 +1,12 @@
 # LOGS
 
+
+## 29 October 2021
+
+* Started out doing some pointer experiments.  It's been a few years since I've done
+  much in C, and I want to be sure that I know exactly what's what.
+
+
 ## 28 October 2021
 
 * I've had a tough day at work, and so my brain just isn't up to much being clever. So I'm just
