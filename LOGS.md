@@ -1,5 +1,11 @@
 # LOGS
 
+## 4 November 2021
+
+* I didn't do much because I was moving house and really busy with work.
+* I've been reading a c book, just to get better at some of the stuff that I've been struggling with.
+* Small changes to the file read, trying to get my head around passing pointers between functions and malloc.
+* It works, but I think I still need to get the concepts down better.  The best way seems to be finding ways in which it breaks and then fixing that.
 
 ## 29 October 2021
 
